@@ -1,0 +1,14 @@
+class Solution(object):
+    def smallerNumbersThanCurrent(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+
+        sorted_nums = sorted(nums)
+        num_to_smaller_count = {}
+
+        for idx, num in enumerate(sorted_nums):
+            if num not in num_to_smaller_count:
+                num_to_smaller_count[num] = idx
+        return [num_to_smaller_count[num] for num in nums]
